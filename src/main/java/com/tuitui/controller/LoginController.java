@@ -57,7 +57,7 @@ public class LoginController {
         Result result = new Result();
         if(old==null){
             result.error(ResultCode.USER_ACCOUNT_NOT_EXIST);
-        }else if(!passwordEncoder.matches(old.getPassword(),user.getPassword())){
+        }else if(!passwordEncoder.matches(user.getPassword(),old.getPassword())){
             result.error(ResultCode.USER_CREDENTIALS_ERROR);
         }else{
             result.ok();

@@ -12,12 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/verify")
 public class UserController {
 
-    @GetMapping("/test")
+    @GetMapping("/loging")
     public Result register(
             HttpServerRequest request,
             HttpServletResponse response
     ) {
-        System.out.println("enter...");
-        return null;
+        return new Result().ok();
     }
 }

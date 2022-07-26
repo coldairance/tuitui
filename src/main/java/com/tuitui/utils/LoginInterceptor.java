@@ -15,6 +15,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         ResultCode check = JWTUtils.check(token);
         if(!check.equals(ResultCode.SUCCESS)){
             // 直接返回
+            response.setCharacterEncoding("UTF-8");
             response.getWriter().write(JSONUtil.toJsonStr(new Result().error(check)));
             return false;
         }

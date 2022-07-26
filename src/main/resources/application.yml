@@ -36,26 +36,6 @@ spring:
     password: 123456
   transaction:
     rollback-on-commit-failure: true
-  rabbitmq:
-    host: 127.0.0.1
-    virtual-host: /
-    port: 5672
-    username: admin
-    password: admin
-    listener:
-      simple:
-        concurrency: 50
-        max-concurrency: 100
-        prefetch: 1
-        acknowledge-mode: manual
-        retry:
-          enabled: true
-          max-attempts: 3
-          max-interval: 10000ms
-    publisher-confirm-type: correlated
-    publisher-returns: true
-    template:
-      mandatory: true
 # 自定义 jwt 密钥
 jwt:
   key: "F!$@#%#@$%GDSFGSDgsdf????$@#%@%@#$GDFSGDSFGDS"

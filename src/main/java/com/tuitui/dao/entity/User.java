@@ -10,15 +10,15 @@ import javax.validation.constraints.Digits;
 public class User {
 
     @Digits(integer = 19,fraction = 0,message = LoginValidation.USER_ID,groups = {LoginValidation.Login.class})
-    @ApiModelProperty(value = "用户ID", notes = LoginValidation.USER_ID)
+    @ApiModelProperty(value = "用户ID："+LoginValidation.USER_ID)
     private Long uid;
 
     @Length(min = 5,max = 10, message = LoginValidation.PASSWORD,groups = {LoginValidation.Login.class,LoginValidation.Register.class})
-    @ApiModelProperty(value = "密码", notes = LoginValidation.PASSWORD)
+    @ApiModelProperty(value = "密码："+LoginValidation.PASSWORD)
     private String password;
 
     @Length(min=3,max=8, message = LoginValidation.USER_NAME,groups = {LoginValidation.Register.class})
-    @ApiModelProperty(value = "用户名", notes = LoginValidation.USER_NAME)
+    @ApiModelProperty(value = "用户名："+LoginValidation.USER_NAME)
     private String username;
 
 }

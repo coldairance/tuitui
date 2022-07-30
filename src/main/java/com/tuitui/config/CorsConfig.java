@@ -12,8 +12,8 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://www.coldairance.com");
-        config.setAllowCredentials(true);
+        config.addAllowedOrigin("http://127.0.0.1:80");
+        config.setAllowCredentials(false);
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.setMaxAge(3600L);

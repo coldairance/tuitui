@@ -27,9 +27,11 @@ public class MyTest {
     void testPasswordEncoder(){
 
         String password = "123456";
-        String encode = encoder.encode(password);
-        System.out.println(encode);
-        System.out.println(encoder.matches(password,encode));
+        for (int i = 0; i < 10; i++) {
+            System.out.println(encoder.encode(password));
+        }
+
+        encoder.matches(password, encoder.encode(password));
     }
 
     @Test

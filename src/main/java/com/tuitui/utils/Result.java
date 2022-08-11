@@ -47,7 +47,7 @@ public class Result {
     }
 
 
-    public Result add(String key, Object value) {
+    public Result add(String key, String value) {
         this.data.put(key, value);
         return this;
     }

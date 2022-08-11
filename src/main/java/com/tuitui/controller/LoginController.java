@@ -42,7 +42,7 @@ public class LoginController {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userMapper.insertUser(user);
         Result result = new Result();
-        result.ok().add("uid",uid);
+        result.ok().add("uid",uid+"");
 
         return result;
     }

@@ -2,6 +2,7 @@ package com.tuitui.controller;
 import com.tuitui.dao.mapper.BookMapper;
 import com.tuitui.utils.Result;
 import com.tuitui.utils.ResultCode;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class UserController {
     private BookMapper bookMapper;
 
     @GetMapping("/loging")
+    @ApiOperation(value = "登录校验",notes = "判断用户是否登录")
     public Result register(
             HttpServletRequest request,
             HttpServletResponse response
@@ -25,6 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/book/add")
+    @ApiOperation(value = "添加书籍",notes = "根据用户ID和书籍ID添加书籍")
     public Result addBook(
             HttpServletRequest request,
             HttpServletResponse response,
@@ -43,6 +46,7 @@ public class UserController {
     }
 
     @GetMapping("/book/del")
+    @ApiOperation(value = "删除书籍",notes = "根据用户ID和书籍ID删除书籍")
     public Result delBook(
             HttpServletRequest request,
             HttpServletResponse response,

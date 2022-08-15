@@ -1,22 +1,61 @@
 package com.tuitui.controller;
-
-import cn.hutool.http.server.HttpServerRequest;
+import com.tuitui.dao.mapper.BookMapper;
 import com.tuitui.utils.Result;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.tuitui.utils.ResultCode;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/verify")
 public class UserController {
 
+    @Autowired
+    private BookMapper bookMapper;
+
     @GetMapping("/loging")
     public Result register(
-            HttpServerRequest request,
+            HttpServletRequest request,
             HttpServletResponse response
     ) {
         return new Result().ok();
+    }
+
+    @GetMapping("/book/add")
+    public Result addBook(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @RequestParam String bid,
+            @RequestAttribute String uid
+    ) {
+        Result result = new Result();
+        try {
+            bookMapper.insertBook(uid,bid);
+        }catch (Exception e){
+            result.error(ResultCode.DUB_INSERT);
+            return result;
+        }
+
+        return result.ok();
+    }
+
+    @GetMapping("/book/del")
+    public Result delBook(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @RequestParam String bid,
+            @RequestAttribute String uid
+    ) {
+        Result result = new Result();
+        Integer integer = bookMapper.deleteBook(uid, bid);
+        if(integer==0){
+            result.error(ResultCode.BOOK_NOT_EXIST);
+        }else{
+            result.ok();
+        }
+        return result;
     }
 }

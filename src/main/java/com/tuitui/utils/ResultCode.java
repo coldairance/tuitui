@@ -20,8 +20,14 @@ public enum ResultCode {
      */
     USER_ACCOUNT_EXPIRED(2000, "验证信息已过期"),
     USER_ACCOUNT_USE_BY_OTHERS(2001, "您的账号已经在另一台机器登录，您被迫下线"),
+    TOKEN_ERROR(2002, "token被篡改"),
 
-    TOKEN_ERROR(2002, "token被篡改");
+    /**
+     * 书籍操作
+     */
+    DUB_INSERT(3001,"重复插入"),
+    BOOK_NOT_EXIST(3002,"书籍未收藏");
+
 
 
 

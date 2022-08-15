@@ -4,14 +4,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import javax.validation.constraints.Digits;
 @Data
 @ApiModel(description = "用户")
 public class User {
 
-    @Digits(integer = 19,fraction = 0,message = LoginValidation.USER_ID,groups = {LoginValidation.Login.class})
+    @Length(min = 19,max = 19,message = LoginValidation.USER_ID,groups = {LoginValidation.Login.class})
     @ApiModelProperty(value = "用户ID："+LoginValidation.USER_ID)
-    private Long uid;
+    private String uid;
 
     @Length(min = 5,max = 10, message = LoginValidation.PASSWORD,groups = {LoginValidation.Login.class,LoginValidation.Register.class})
     @ApiModelProperty(value = "密码："+LoginValidation.PASSWORD)

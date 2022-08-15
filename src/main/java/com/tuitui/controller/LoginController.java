@@ -38,7 +38,7 @@ public class LoginController {
     ) {
 
         long uid = snowflake.nextId();
-        user.setUid(uid);
+        user.setUid(uid+"");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userMapper.insertUser(user);
         Result result = new Result();
